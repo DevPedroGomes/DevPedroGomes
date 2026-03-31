@@ -1,14 +1,11 @@
-## Hey, I'm Pedro 👋
+## Hey, I'm Pedro 
 
 **Backend & AI Engineer** from Salvador, Brazil.
 
-I build the backend, wire the AI, and ship the product. From FastAPI services and multi-agent orchestration to polished Next.js frontends with Stripe billing — I own every layer of the stack so ideas don't stay on a whiteboard.
-
-Currently pursuing a B.S. in Software Engineering at UCSAL, with 800+ hours of hands-on training from Springboard's Full-Stack program.
-
+I build the backend, wire the AI, and ship the product.
 ---
 
-### 🔧 What I Build
+###  What I Build
 
 - **Multi-Agent AI Systems** — LangChain, LangGraph, CrewAI, OpenClaw
 - **RAG & Document Intelligence** — Hybrid search, pgvector, reranking pipelines
@@ -19,7 +16,7 @@ Currently pursuing a B.S. in Software Engineering at UCSAL, with 800+ hours of h
 
 ---
 
-### 🚀 Live Projects
+###  Live Projects
 
 | Project | Description | Stack |
 |---------|-------------|-------|
@@ -34,20 +31,20 @@ Currently pursuing a B.S. in Software Engineering at UCSAL, with 800+ hours of h
 
 ---
 
-### 🛠 Tech Stack
+###  Tech Stack
 
 **Languages:** Python, TypeScript, JavaScript
 **Frontend:** React, Next.js, Tailwind CSS, Framer Motion
 **Backend:** FastAPI, Node.js, Express, Flask
 **Databases:** PostgreSQL, Supabase, Redis, MongoDB, Firebase, Prisma
-**AI/ML:** OpenAI, Claude, LangChain, LangGraph, CrewAI, Embeddings, pgvector
+**AI/ML:** OpenAI, Claude, LangChain, LangGraph, CrewAI, Agno, OpenClaw
 **DevOps:** Docker, Traefik, AWS, GCP, Vercel, GitHub Actions
 **Payments:** Stripe, MercadoPago
 
 ---
 
-### 📫 Let's Connect
+###  Let's Connect
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-pgdev.com.br-blueviolet?style=flat-square)](https://portfolio.pgdev.com.br)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Gomes-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/peugomes)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Gomes-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/devpedrogomes)
 [![Email](https://img.shields.io/badge/Email-contato%40pgdev.com.br-red?style=flat-square&logo=gmail)](mailto:contato@pgdev.com.br)
