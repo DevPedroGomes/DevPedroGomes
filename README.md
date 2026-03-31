@@ -50,5 +50,4 @@ Currently pursuing a B.S. in Software Engineering at UCSAL, with 800+ hours of h
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-pgdev.com.br-blueviolet?style=flat-square)](https://portfolio.pgdev.com.br)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Gomes-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/peugomes)
-[![Email](https://img.shields.io/badge/Email-pedro%40peugomes.com-red?style=flat-square&logo=gmail)](mailto:pedro@peugomes.com)
-[![Telegram](https://img.shields.io/badge/Telegram-@peugomes-2CA5E0?style=flat-square&logo=telegram)](https://t.me/peugomes)
+[![Email](https://img.shields.io/badge/Email-contato%40pgdev.com.br-red?style=flat-square&logo=gmail)](mailto:contato@pgdev.com.br)
