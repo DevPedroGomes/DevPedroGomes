@@ -1,0 +1,54 @@
+## Hey, I'm Pedro 👋
+
+**Backend & AI Engineer** from Salvador, Brazil.
+
+I build the backend, wire the AI, and ship the product. From FastAPI services and multi-agent orchestration to polished Next.js frontends with Stripe billing — I own every layer of the stack so ideas don't stay on a whiteboard.
+
+Currently pursuing a B.S. in Software Engineering at UCSAL, with 800+ hours of hands-on training from Springboard's Full-Stack program.
+
+---
+
+### 🔧 What I Build
+
+- **Multi-Agent AI Systems** — LangChain, LangGraph, CrewAI, OpenClaw
+- **RAG & Document Intelligence** — Hybrid search, pgvector, reranking pipelines
+- **Full-Stack SaaS** — Next.js + FastAPI + Supabase + Stripe, end-to-end
+- **WhatsApp & Messaging Automation** — AI agents for real businesses
+- **Voice AI & Real-Time Processing** — Deepgram, Whisper, WebSocket streaming
+- **APIs & Payment Integrations** — Stripe, MercadoPago, metered billing
+
+---
+
+### 🚀 Live Projects
+
+| Project | Description | Stack |
+|---------|-------------|-------|
+| [**RAG Knowledge Assistant**](https://ragcrawler.pgdev.com.br) | Upload docs or crawl pages, then ask questions with AI-powered hybrid search and citations | Next.js, FastAPI, pgvector, LangGraph |
+| [**Minha Pousada**](https://minhapousada.pgdev.com.br) | Multi-tenant SaaS for room reservations with RBAC, staff invites, and audit trail | Next.js, FastAPI, Supabase, Stripe |
+| [**MeetingsTranscript**](https://transcripts.pgdev.com.br) | Audio & YouTube transcription powered by Deepgram Nova-2 with AI reprocessing | Next.js, Deepgram, OpenAI |
+| [**AI Web Searcher**](https://searcher.pgdev.com.br) | Perplexity-style research assistant with citation-backed answers via a 5-stage pipeline | Next.js, FastAPI, LangGraph |
+| [**Intelligent Web Scraper**](https://scraper.pgdev.com.br) | AI-powered web scraping — describe what to extract in natural language, get structured data | Next.js, FastAPI, multi-provider LLM |
+| [**Voice RAG**](https://voicerag.pgdev.com.br) | Upload PDFs and ask questions with voice — real-time TTS audio streaming | Next.js, OpenAI Agents SDK, TTS |
+
+> All projects are self-hosted on my own VPS with Docker, Traefik, and automated TLS — no PaaS.
+
+---
+
+### 🛠 Tech Stack
+
+**Languages:** Python, TypeScript, JavaScript
+**Frontend:** React, Next.js, Tailwind CSS, Framer Motion
+**Backend:** FastAPI, Node.js, Express, Flask
+**Databases:** PostgreSQL, Supabase, Redis, MongoDB, Firebase, Prisma
+**AI/ML:** OpenAI, Claude, LangChain, LangGraph, CrewAI, Embeddings, pgvector
+**DevOps:** Docker, Traefik, AWS, GCP, Vercel, GitHub Actions
+**Payments:** Stripe, MercadoPago
+
+---
+
+### 📫 Let's Connect
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-pgdev.com.br-blueviolet?style=flat-square)](https://portfolio.pgdev.com.br)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Gomes-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/peugomes)
+[![Email](https://img.shields.io/badge/Email-pedro%40peugomes.com-red?style=flat-square&logo=gmail)](mailto:pedro@peugomes.com)
+[![Telegram](https://img.shields.io/badge/Telegram-@peugomes-2CA5E0?style=flat-square&logo=telegram)](https://t.me/peugomes)
