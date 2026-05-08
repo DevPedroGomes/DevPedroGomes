@@ -1,50 +1,84 @@
-## Hey, I'm Pedro 
+## Pedro Gomes — Backend & AI Engineer
 
-**Backend & AI Engineer** from Salvador, Brazil.
+Salvador, Brazil. I ship production AI systems — multi-tenant WhatsApp agents, voice-first interfaces, hybrid-search RAG, and full-stack SaaS — end to end.
 
-I build the backend, wire the AI, and ship the product.
----
-
-###  What I Build
-
-- **Multi-Agent AI Systems** — LangChain, LangGraph, CrewAI, OpenClaw
-- **RAG & Document Intelligence** — Hybrid search, pgvector, reranking pipelines
-- **Full-Stack SaaS** — Next.js + FastAPI + Supabase + Stripe, end-to-end
-- **WhatsApp & Messaging Automation** — AI agents for real businesses
-- **Voice AI & Real-Time Processing** — Deepgram, Whisper, WebSocket streaming
-- **APIs & Payment Integrations** — Stripe, MercadoPago, metered billing
+Self-hosted on my own VPS with Docker + Traefik + Let's Encrypt. No PaaS, no shortcuts.
 
 ---
 
-###  Live Projects
+### What I build
 
-| Project | Description | Stack |
-|---------|-------------|-------|
-| [**RAG Knowledge Assistant**](https://ragcrawler.pgdev.com.br) | Upload docs or crawl pages, then ask questions with AI-powered hybrid search and citations | Next.js, FastAPI, pgvector, LangGraph |
-| [**Minha Pousada**](https://minhapousada.pgdev.com.br) | Multi-tenant SaaS for room reservations with RBAC, staff invites, and audit trail | Next.js, FastAPI, Supabase, Stripe |
-| [**MeetingsTranscript**](https://transcripts.pgdev.com.br) | Audio & YouTube transcription powered by Deepgram Nova-2 with AI reprocessing | Next.js, Deepgram, OpenAI |
-| [**AI Web Searcher**](https://searcher.pgdev.com.br) | Perplexity-style research assistant with citation-backed answers via a 5-stage pipeline | Next.js, FastAPI, LangGraph |
-| [**Intelligent Web Scraper**](https://scraper.pgdev.com.br) | AI-powered web scraping — describe what to extract in natural language, get structured data | Next.js, FastAPI, multi-provider LLM |
-| [**Voice RAG**](https://voicerag.pgdev.com.br) | Upload PDFs and ask questions with voice — real-time TTS audio streaming | Next.js, OpenAI Agents SDK, TTS |
-
-> All projects are self-hosted on my own VPS with Docker, Traefik, and automated TLS — no PaaS.
+- **Multi-tenant WhatsApp / Telegram / Slack agents** — 1 isolated container per paying client, persistent memory, business rules per workspace, Stripe-gated subscriptions.
+- **Voice-first AI** — real-time loops (Whisper STT → LLM → gpt-4o-mini-tts streaming PCM via SSE → Web Audio API), Twilio + Deepgram telephony, sentence-pipelined TTS for sub-second first-audible-word.
+- **Advanced RAG** — pgvector HNSW + tsvector GIN with Reciprocal Rank Fusion, Cohere cross-encoder reranking, **Anthropic Contextual Retrieval** with prompt caching, multi-query expansion, Corrective-RAG self-healing, multi-modal ingest (PDF / image / audio / video).
+- **Multi-agent orchestration** — LangGraph state machines, OpenAI Agents SDK, Anthropic SDK with tool use + structured outputs + streaming, multi-provider failover (Anthropic ↔ OpenAI ↔ OpenRouter).
+- **Full-stack SaaS** — FastAPI + Next.js 16 + Tailwind 4 + shadcn/ui, multi-tenant Postgres, Redis, BRL payments via Pix + Mercado Pago, Stripe for global, Better Auth / Supabase Auth.
+- **Vision + automation** — VLM pipelines (Cohere Embed-4, Gemini), document intelligence, design-system extraction, browser-driving QA agents (browser-use + Claude Sonnet).
 
 ---
 
-###  Tech Stack
+### Featured products (in production)
 
-**Languages:** Python, TypeScript, JavaScript
-**Frontend:** React, Next.js, Tailwind CSS, Framer Motion
-**Backend:** FastAPI, Node.js, Express, Flask
-**Databases:** PostgreSQL, Supabase, Redis, MongoDB, Firebase, Prisma
-**AI/ML:** OpenAI, Claude, LangChain, LangGraph, CrewAI, Agno, OpenClaw
-**DevOps:** Docker, Traefik, AWS, GCP, Vercel, GitHub Actions
-**Payments:** Stripe, MercadoPago
+| Project | What it does | Stack |
+|---|---|---|
+| [**OpenClaw — WhatsApp AI Receptionist**](https://agentes.pgdev.com.br) | Per-client isolated WhatsApp agent. Each customer gets their own Docker container with persistent memory, business rules, and a tuned voice. Multi-tenant infra serving paying clients. | OpenClaw · Docker · Traefik · Claude Sonnet/Haiku · Baileys |
+| [**Voice RAG**](https://voicerag.pgdev.com.br) | Upload PDFs, ask out loud, hear cited answers streamed back as natural speech. End-to-end voice loop with sentence-pipelined TTS, Contextual Retrieval, multi-query expansion. | FastAPI · pgvector · FastEmbed · OpenAI Whisper · gpt-4o-mini-tts · Anthropic SDK |
+| [**Multi-Modal Knowledge Bot (Group Docs)**](https://group-documents.pgdev.com.br) | Team-grade Q&A over PDFs, images, audio, and video with cited sources. Tenant-isolated retrieval, Voyage embeddings, Cohere reranking, Corrective-RAG with Tavily web fallback. | FastAPI · pgvector · Voyage AI · Cohere Rerank · Google Gemini · Claude Sonnet |
+| [**Web Scraper Agent**](https://scraper.pgdev.com.br) | URL + a sentence becomes validated JSON. Multi-layer SSRF / DNS-rebinding defense, prompt-injection isolation, BYOK across 6 providers, per-key cache scoping. | FastAPI · Next.js 16 · Playwright (stealth) · BeautifulSoup · multi-provider LLM |
+| [**Design Extractor**](https://github.com/DevPedroGomes/design-extractor) | Extract complete design systems from any URL — typography, colors, components, layout, motion — into a self-contained HTML report. | Next.js 16 · Firecrawl · Gemini Vision · Better Auth · Drizzle · Postgres |
+| [**RAG Knowledge Assistant**](https://ragcrawler.pgdev.com.br) | Upload docs or crawl pages, then ask questions with hybrid search + citations. Per-user pgvector isolation, streaming SSE, real-time pipeline visibility. | Next.js 15 · FastAPI · pgvector · Better Auth · LangChain |
+| [**Minha Pousada**](https://minhapousada.pgdev.com.br) | Multi-tenant SaaS for inn reservations. RBAC, staff invites, encrypted CPF, audit trail, Better Auth, Resend, Drizzle. | Next.js 14 · Express · Drizzle · Postgres · Better Auth |
+| [**MeetingsTranscript**](https://transcripts.pgdev.com.br) | Audio + YouTube + live-mic transcription with budget guards and prompt-driven reprocessing. Deepgram Nova-3 + Groq Llama 3.3 70B. | Next.js 16 · Deepgram · Groq · yt-dlp |
+| [**AI Web Searcher**](https://searcher.pgdev.com.br) | Perplexity-style research with a 5-stage LangGraph pipeline: query planning → Tavily fan-out → grounded synthesis → self-reflection → optional rewrite. | Next.js 16 · FastAPI · LangGraph · Tavily · OpenRouter |
+
+> Every project ships behind Traefik with HTTPS via Let's Encrypt, security headers, request-size limits, and an internal Docker network so backends are never publicly addressable.
 
 ---
 
-###  Let's Connect
+### In development
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-pgdev.com.br-blueviolet?style=flat-square)](https://portfolio.pgdev.com.br)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Gomes-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/devpedrogomes)
-[![Email](https://img.shields.io/badge/Email-contato%40pgdev.com.br-red?style=flat-square&logo=gmail)](mailto:contato@pgdev.com.br)
+Vertical SaaS and high-niche products I'm building toward production:
+
+- **Navigator** — IVR navigator. User says "call this number, I want to cancel my subscription"; the agent calls, listens to the menu with real-time STT, decides which option to press at each level via LLM, and bridges the user to the right department once reached. Twilio + Deepgram + LLM tool use, with menu cache and DTMF/voice fallback.
+- **Video-SaaS** — Brazilian AI video generation. PT-first UX, Pix + Mercado Pago in BRL, fal.ai catalog wrapper (Kling, Seedance, Veo, Sora, Hailuo), per-niche prompt libraries, WhatsApp delivery via Evolution API.
+- **GuardAI** — AI security agent. Connects any IP camera (Intelbras, Tapo, Hikvision, Dahua) via ONVIF/RTSP, analyzes frames with multimodal VLM, sends contextual WhatsApp alerts. SaaS R$29-149/month per camera.
+- **DietaKit** — AI-assisted meal-plan generator for Brazilian nutritionists. TACO-validated nutrition, branded PDF export, patient-profile aware (anthropometrics, restrictions, clinical conditions).
+- **HealthDocs** — Personal Health Record (PHR) for the Brazilian market. Centralizes health data with proper privacy controls.
+- **AI QA Agent** — browser-use + Claude Sonnet 4.6 driving a real Chromium against my own production apps. Scenarios written in natural language ("sign up at docmind, upload a PDF, ask a question").
+
+---
+
+### Stack
+
+**Languages:** Python · TypeScript · JavaScript
+
+**AI / LLM:** Anthropic SDK · OpenAI SDK · OpenAI Agents SDK · LangGraph · CrewAI · Agno · OpenClaw · Voyage AI · Cohere Rerank · Tavily · FastEmbed (ONNX)
+
+**Backend:** FastAPI · Node.js · Express · Flask · asyncpg · Pydantic v2 · structlog · Drizzle ORM · SQLAlchemy
+
+**Frontend:** Next.js 14/15/16 · React 18/19 · Tailwind CSS 3/4 · shadcn/ui · Framer Motion · GSAP · Web Audio API
+
+**Data:** PostgreSQL + pgvector (HNSW) · Redis · Supabase · Firebase · MongoDB
+
+**Voice & vision:** Twilio · Deepgram Nova-3 · Whisper · gpt-4o-mini-tts · Cohere Embed-4 · Google Gemini · Playwright Chromium
+
+**Payments & auth:** Stripe · Mercado Pago (Pix + recurring) · Better Auth · Supabase Auth · Clerk · Resend
+
+**Infrastructure:** Docker · Traefik v3 (TLS/HSTS/security headers/rate limit) · Let's Encrypt · Hostinger VPS · Railway · Vercel · AWS · Digital Ocean · GitHub Actions
+
+---
+
+### Agent coding workflow
+
+My day-to-day shipping is deeply integrated with modern agent coding frameworks — I'm proficient with **Claude Code**, **Codex**, and **Antigravity**, leveraging them to ship production software faster and with higher quality. On the AI integration side, I work directly with the **Anthropic SDK** and **OpenAI SDK** day-to-day: prompt caching, tool use, streaming, structured outputs, the Agents SDK.
+
+---
+
+### Let's connect
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-portfolio.pgdev.com.br-8b5cf6?style=flat-square)](https://portfolio.pgdev.com.br)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pedro%20Gomes-0a66c2?style=flat-square&logo=linkedin)](https://linkedin.com/in/devpedrogomes)
+[![Email](https://img.shields.io/badge/Email-devpedrogomes%40gmail.com-d14836?style=flat-square&logo=gmail)](mailto:devpedrogomes@gmail.com)
+[![Telegram](https://img.shields.io/badge/Telegram-%40peugomes-2ca5e0?style=flat-square&logo=telegram)](https://t.me/peugomes)
+
+Open to **AI engineering, backend, full-stack** roles and contracts. If you have a problem that needs to become working software, I can build it.
