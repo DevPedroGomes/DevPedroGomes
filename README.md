@@ -23,10 +23,9 @@ Self-hosted on my own VPS with Docker + Traefik + Let's Encrypt. No PaaS, no sho
 |---|---|---|
 | [**OpenClaw — WhatsApp AI Receptionist**](https://agentes.pgdev.com.br) | Per-client isolated WhatsApp agent. Each customer gets their own Docker container with persistent memory, business rules, and a tuned voice. Multi-tenant infra serving paying clients. | OpenClaw · Docker · Traefik · Claude Sonnet/Haiku · Baileys |
 | [**Voice RAG**](https://voicerag.pgdev.com.br) | Upload PDFs, ask out loud, hear cited answers streamed back as natural speech. End-to-end voice loop with sentence-pipelined TTS, Contextual Retrieval, multi-query expansion. | FastAPI · pgvector · FastEmbed · OpenAI Whisper · gpt-4o-mini-tts · Anthropic SDK |
-| [**Multi-Modal Knowledge Bot (Group Docs)**](https://group-documents.pgdev.com.br) | Team-grade Q&A over PDFs, images, audio, and video with cited sources. Tenant-isolated retrieval, Voyage embeddings, Cohere reranking, Corrective-RAG with Tavily web fallback. | FastAPI · pgvector · Voyage AI · Cohere Rerank · Google Gemini · Claude Sonnet |
+| [**Multi-Modal Knowledge Bot (Group Docs)**](https://group-documents.pgdev.com.br) | Team-grade Q&A over PDFs, images, audio, video, and crawled URLs with cited sources. Tenant-isolated retrieval, Voyage embeddings, Cohere reranking, Anthropic contextual retrieval, SSRF-defended URL ingest. | FastAPI · pgvector · Voyage AI · Cohere Rerank · Google Gemini · Claude Sonnet |
 | [**Web Scraper Agent**](https://scraper.pgdev.com.br) | URL + a sentence becomes validated JSON. Multi-layer SSRF / DNS-rebinding defense, prompt-injection isolation, BYOK across 6 providers, per-key cache scoping. | FastAPI · Next.js 16 · Playwright (stealth) · BeautifulSoup · multi-provider LLM |
 | [**Design Extractor**](https://github.com/DevPedroGomes/design-extractor) | Extract complete design systems from any URL — typography, colors, components, layout, motion — into a self-contained HTML report. | Next.js 16 · Firecrawl · Gemini Vision · Better Auth · Drizzle · Postgres |
-| [**RAG Knowledge Assistant**](https://ragcrawler.pgdev.com.br) | Upload docs or crawl pages, then ask questions with hybrid search + citations. Per-user pgvector isolation, streaming SSE, real-time pipeline visibility. | Next.js 15 · FastAPI · pgvector · Better Auth · LangChain |
 | [**Minha Pousada**](https://minhapousada.pgdev.com.br) | Multi-tenant SaaS for inn reservations. RBAC, staff invites, encrypted CPF, audit trail, Better Auth, Resend, Drizzle. | Next.js 14 · Express · Drizzle · Postgres · Better Auth |
 | [**MeetingsTranscript**](https://transcripts.pgdev.com.br) | Audio + YouTube + live-mic transcription with budget guards and prompt-driven reprocessing. Deepgram Nova-3 + Groq Llama 3.3 70B. | Next.js 16 · Deepgram · Groq · yt-dlp |
 | [**AI Web Searcher**](https://searcher.pgdev.com.br) | Perplexity-style research with a 5-stage LangGraph pipeline: query planning → Tavily fan-out → grounded synthesis → self-reflection → optional rewrite. | Next.js 16 · FastAPI · LangGraph · Tavily · OpenRouter |
@@ -44,7 +43,7 @@ Vertical SaaS and high-niche products I'm building toward production:
 - **GuardAI** — AI security agent. Connects any IP camera (Intelbras, Tapo, Hikvision, Dahua) via ONVIF/RTSP, analyzes frames with multimodal VLM, sends contextual WhatsApp alerts. SaaS R$29-149/month per camera.
 - **DietaKit** — AI-assisted meal-plan generator for Brazilian nutritionists. TACO-validated nutrition, branded PDF export, patient-profile aware (anthropometrics, restrictions, clinical conditions).
 - **HealthDocs** — Personal Health Record (PHR) for the Brazilian market. Centralizes health data with proper privacy controls.
-- **AI QA Agent** — browser-use + Claude Sonnet 4.6 driving a real Chromium against my own production apps. Scenarios written in natural language ("sign up at docmind, upload a PDF, ask a question").
+- **AI QA Agent** — browser-use + Claude Sonnet 4.6 driving a real Chromium against my own production apps. Scenarios written in natural language ("sign up at group-documents, upload a PDF, ask a question").
 
 ---
 
