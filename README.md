@@ -1,15 +1,13 @@
 ## Pedro Gomes — Backend & AI Engineer
 
-Salvador, Brazil. I ship production AI systems — multi-tenant WhatsApp agents, voice-first interfaces, hybrid-search RAG, and full-stack SaaS — end to end.
-
-Self-hosted on my own VPS with Docker + Traefik + Let's Encrypt. No PaaS, no shortcuts.
+Salvador, Brazil. I ship production AI systems, WhatsApp agents, voice-first interfaces, hybrid-search RAG, and full-stack SaaS — end to end.
 
 ---
 
 ### What I build
 
-- **Multi-tenant WhatsApp / Telegram / Slack agents** — 1 isolated container per paying client, persistent memory, business rules per workspace, Stripe-gated subscriptions.
-- **Voice-first AI** — real-time loops (Whisper STT → LLM → gpt-4o-mini-tts streaming PCM via SSE → Web Audio API), Twilio + Deepgram telephony, sentence-pipelined TTS for sub-second first-audible-word.
+- **Multi-tenant WhatsApp / Telegram / Slack agents** — 1 isolated container per agent, persistent memory, business rules per workspace, Stripe-gated subscriptions.
+- **Voice-first AI** — real-time loops (Whisper STT → LLM → tts streaming PCM via SSE → Web Audio API), Twilio + Deepgram telephony, sentence-pipelined TTS for sub-second first-audible-word.
 - **Advanced RAG** — pgvector HNSW + tsvector GIN with Reciprocal Rank Fusion, Cohere cross-encoder reranking, **Anthropic Contextual Retrieval** with prompt caching, multi-query expansion, Corrective-RAG self-healing, multi-modal ingest (PDF / image / audio / video).
 - **Multi-agent orchestration** — LangGraph state machines, OpenAI Agents SDK, Anthropic SDK with tool use + structured outputs + streaming, multi-provider failover (Anthropic ↔ OpenAI ↔ OpenRouter).
 - **Full-stack SaaS** — FastAPI + Next.js 16 + Tailwind 4 + shadcn/ui, multi-tenant Postgres, Redis, BRL payments via Pix + Mercado Pago, Stripe for global, Better Auth / Supabase Auth.
