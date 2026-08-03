@@ -1,6 +1,6 @@
 ## Pedro Gomes
 
-Salvador, Brazil. I run **PG Tech**, a one-person software house.
+Salvador, Brazil. I run **Gomio**, a one-person software house.
 
 I build AI agents that do the work instead of just answering: book the appointment, create the lead in the CRM, issue the payment link, update the order. And I build everything underneath them, which is usually what decides whether the project survives contact with production: the API, the database, the billing, the multi-tenancy, and the infrastructure it all runs on.
 
@@ -38,7 +38,7 @@ Also shipped: [Minha Pousada](https://github.com/DevPedroGomes/Reservas_Pousada)
 
 ---
 
-### PG Tech
+### Gomio
 
 The software house side. Three things I sell:
 
@@ -84,6 +84,6 @@ Full scope and pricing at [agentes.pgdev.com.br](https://agentes.pgdev.com.br).
 
 ### Contact
 
-[Portfolio](https://portfolio.pgdev.com.br) · [PG Tech](https://agentes.pgdev.com.br) · [LinkedIn](https://linkedin.com/in/devpedrogomes) · [devpedrogomes@gmail.com](mailto:devpedrogomes@gmail.com) · [Telegram](https://t.me/peugomes)
+[Portfolio](https://portfolio.pgdev.com.br) · [Gomio](https://agentes.pgdev.com.br) · [LinkedIn](https://linkedin.com/in/devpedrogomes) · [devpedrogomes@gmail.com](mailto:devpedrogomes@gmail.com) · [Telegram](https://t.me/peugomes)
 
 Available for project work and contracts. If you have a process that should be running without a person in the loop, tell me which systems it touches and I will tell you honestly whether it is buildable.
