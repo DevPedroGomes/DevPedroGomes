@@ -49,16 +49,18 @@ ceilings.
 
 | Project | What it does | Stack |
 |---|---|---|
-| [**WhatsApp AI Agent · Official Cloud API**](https://agentes.pgdev.com.br) | The service page for agent builds: fixed scope, fixed price, official Meta Cloud API on the client's own Business account. Purchase is gated by a deterministic qualifier, so a project that cannot be delivered honestly does not get sold. | Node, Express, SQLite, Stripe, FastAPI gateway |
+| [**Clínica Aurora · Agent that writes to a real schedule**](https://aurora.pgdev.com.br) | Open demo, no signup: you talk, and the row changes in the ERP live. Five business rules are decided by a deterministic engine instead of the model, every decision is logged with the rule code that produced it, and a button takes the ERP down to prove the agent escalates rather than inventing a confirmation. | FastAPI, Claude Sonnet 5, deterministic policy engine, server-sent events |
+| [**Citável · Does the AI recommend this business?**](https://citavel.gomio.com.br) | Ask an AI "best dentist in Salvador" and a real business either shows up or it does not. Measures which, question by question and live in front of you, and reports only what came back. Detection is exact matching, never fuzzy: a false positive would cost the audit the one thing it sells, which is being checkable. | FastAPI, PostgreSQL queue, OpenRouter (GPT, Gemini), Next.js |
 | [**Voice AI Assistant (RAG)**](https://voicerag.pgdev.com.br) | Upload PDFs, ask out loud, hear a cited answer streamed back as speech. Session-scoped multi-tenancy, with the vectors evicted when the session expires. | FastAPI, pgvector, FastEmbed (ONNX), Whisper, gpt-4o-mini-tts |
 | [**BrainHub · Multimodal RAG**](https://group-documents.pgdev.com.br) | Team Q&A over PDFs, images, audio, video and crawled URLs with cited sources. SSRF-defended URL ingest, tenant-filtered retrieval. | FastAPI, pgvector, Voyage AI, Cohere Rerank, Gemini, Claude |
-| [**Metered AI Platform · Transcription**](https://transcripts.pgdev.com.br) | Three pipelines (upload, YouTube, live microphone) behind a hard daily budget: spend reserved before the provider call and reconciled after, a kill switch, and ephemeral provider keys with a 5 second TTL that never reach the browser. | Next.js, Deepgram Nova-3, yt-dlp, OpenRouter |
 | [**AI Web Scraping Agent**](https://scraper.pgdev.com.br) | A URL plus a sentence becomes validated JSON. Multi-layer SSRF and DNS-rebinding defense, prompt-injection isolation, bring-your-own-key across 6 providers, per-key cache scoping. | FastAPI, Next.js, Playwright, SQLite |
 | [**AI Research Agent**](https://searcher.pgdev.com.br) | Perplexity-style research in five explicit stages: plan, fetch, score the sources, synthesise with mandatory citations, then self-reflect and retry when the evidence is weak. | FastAPI, LangGraph, Tavily, OpenRouter |
-| [**AI Voice Phone Agent**](https://portfolio.pgdev.com.br/en/projects/ai-voice-phone-agent) | Places a real phone call, transcribes the menu live, decides which key to press at each level, and bridges you in once it reaches a human. Handles 13 real-world edge cases including voice menus, DTMF rejection and menu loops. | Python, Twilio, Deepgram Nova-3, Claude Haiku, Postgres, Redis |
 
-Also shipped: [Minha Pousada](https://github.com/DevPedroGomes/Reservas_Pousada), a
-multi-tenant reservation SaaS with RBAC, staff invites, encrypted CPF and an audit trail.
+Also shipped: [agent-ops](https://github.com/DevPedroGomes/agent-ops), the library the agents above run on:
+a spend cap that refuses when it cannot read itself, an audit trail that answers "why did it decide
+that" with a rule code, and a durable queue that survives a redeploy. And
+[Minha Pousada](https://github.com/DevPedroGomes/Reservas_Pousada), a multi-tenant reservation SaaS with
+RBAC, staff invites, encrypted CPF and an audit trail.
 
 ---
 
@@ -76,7 +78,7 @@ The software house side. What I sell:
   captures the caller's details and transfers to a person when it should. Barge-in,
   voicemail detection, and every call transcribed. You own the accounts from day one.
 
-Scope and pricing at [agentes.pgdev.com.br](https://agentes.pgdev.com.br).
+Scope and pricing at [gomio.com.br](https://gomio.com.br).
 
 ---
 
@@ -119,7 +121,7 @@ FastEmbed
 
 ### Contact
 
-[Portfolio](https://portfolio.pgdev.com.br) · [Gomio](https://agentes.pgdev.com.br) ·
+[Portfolio](https://portfolio.pgdev.com.br) · [Gomio](https://gomio.com.br) ·
 [LinkedIn](https://linkedin.com/in/devpedrogomes) ·
 [devpedrogomes@gmail.com](mailto:devpedrogomes@gmail.com) ·
 [Telegram](https://t.me/peugomes)
