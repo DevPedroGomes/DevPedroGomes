@@ -44,13 +44,15 @@ security headers and healthchecks.
 
 ### Selected work
 
-Everything below is deployed. The demos run behind per-IP rate limits and daily spend
+Everything below is deployed. The demos run behind per-IP rate limits and spend
 ceilings.
 
 | Project | What it does | Stack |
 |---|---|---|
 | [**Clínica Aurora · Agent that writes to a real schedule**](https://aurora.pgdev.com.br) | Open demo, no signup: you talk, and the row changes in the ERP live. Five business rules are decided by a deterministic engine instead of the model, every decision is logged with the rule code that produced it, and a button takes the ERP down to prove the agent escalates rather than inventing a confirmation. | FastAPI, Claude Sonnet 5, deterministic policy engine, server-sent events |
-| [**Chancela · Does the AI recommend this business?**](https://chancela.gomio.com.br) | Ask an AI "best dentist in Salvador" and a real business either shows up or it does not. Measures which, question by question and live in front of you, and reports only what came back. Detection is exact matching, never fuzzy: a false positive would cost the audit the one thing it sells, which is being checkable. | FastAPI, PostgreSQL queue, OpenRouter (GPT, Gemini), Next.js |
+| [**Sofia · Voice receptionist**](https://voz.gomio.com.br/en) | Answers callers, takes their name, phone and reason, and refuses what the business does not do. Next to the conversation, each decision shows the written rule behind it. Talk to her through your microphone, or replay ready-made cases without one. 751 tests, and 9 scripted conversations in each language must pass before every release. | LiveKit Agents, Deepgram Flux, Gemini 3.1 Flash Lite, Cartesia Sonic 3.5, Next.js |
+| [**Chancela · Does the AI recommend this business?**](https://chancela.gomio.com.br/en) | Ask an AI "best dentist in Salvador" and a real business either shows up or it does not. Measures which, question by question and live in front of you, and reports only what came back. Detection is exact matching, never fuzzy: a false positive would cost the audit the one thing it sells, which is being checkable. | FastAPI, PostgreSQL queue, OpenRouter (GPT, Gemini), Next.js |
+| [**Gomio operation demos · Real estate, accounting, law firm**](https://portfolio.pgdev.com.br/en/projects/gomio-operation-demos) | A real estate agency you operate from both sides: write as a tenant, then approve the reply in the owner's panel. The same engine runs an accounting firm and a law firm. Code answers the facts and the model only drafts text a person approves. Each visitor gets an isolated copy, and every demo passed a 60-message evaluation with the real model before release. 572 tests. In Portuguese, built for Brazilian businesses. | FastAPI, SQLite, Claude Haiku 4.5, Claude Sonnet 5.5, Playwright |
 | [**BrainHub · Multimodal RAG**](https://group-documents.pgdev.com.br) | Team Q&A over PDFs, images, audio, video and crawled URLs with cited sources. SSRF-defended URL ingest, tenant-filtered retrieval. | FastAPI, pgvector, Voyage AI, Cohere Rerank, Gemini, Claude |
 | [**AI Web Scraping Agent**](https://scraper.pgdev.com.br) | A URL plus a sentence becomes validated JSON. Multi-layer SSRF and DNS-rebinding defense, prompt-injection isolation, bring-your-own-key across 6 providers, per-key cache scoping. | FastAPI, Next.js, Playwright, SQLite |
 
@@ -60,6 +62,19 @@ audit trail that answers "why did it decide that" with a rule code, and a durabl
 redeploy. And
 [Minha Pousada](https://github.com/DevPedroGomes/Reservas_Pousada), a multi-tenant reservation SaaS with
 RBAC, staff invites, encrypted CPF and an audit trail.
+
+---
+
+### Client work
+
+Backend for a consumer telephony app, not launched yet, that maps a company's phone menu by
+calling it, then walks that menu on a live call for the user and hands the call over at the
+destination. I was responsible for most of the core service: the engine that maps each
+company's phone menu and the one that navigates it live during a call. The work is under NDA,
+so there is no demo, no code and no vendor names.
+[The case](https://portfolio.pgdev.com.br/en/projects/phone-menu-navigation) has the
+architecture and what was measured: in the final validation round of live test calls, all 17
+sessions reached the requested destination.
 
 ---
 
