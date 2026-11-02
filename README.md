@@ -138,7 +138,7 @@ Rerank
 ### Contact
 
 [Portfolio](https://portfolio.pgdev.com.br) · [Gomio](https://gomio.com.br) ·
-[LinkedIn](https://linkedin.com/in/devpedrogomes) ·
+[LinkedIn](https://linkedin.com/in/devpgomes) ·
 [devpedrogomes@gmail.com](mailto:devpedrogomes@gmail.com) ·
 [Telegram](https://t.me/peugomes)
 
