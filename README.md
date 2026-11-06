@@ -31,10 +31,14 @@ expansion. Ingest for PDFs, images, audio, video and crawled URLs. Tenant isolat
 enforced at retrieval, before ranking, not at the UI.
 
 **Voice, in and out.** Telephony that holds up on a real call, including live phone-menu
-navigation and barge-in. [Sofia](https://voz.gomio.com.br/en), the demo receptionist for
-Gomio Voz, checks refusals and known prompt-injection phrases in code before the model is
+navigation and barge-in. [Gom](https://voz.gomio.com.br/en), Gomio's own voice agent,
+checks refusals and known prompt-injection phrases in code before the model is
 called, and next to the conversation each decision shows the written rule behind it. 751
 tests, and 9 scripted conversations in each language must pass before every release.
+To measure this kind of agent I built
+[voice-latency-probe](https://github.com/DevPedroGomes/voice-latency-probe), a synthetic
+caller that splits each turn into end of turn, agent and delivery, and is calibrated in CI
+against an agent with known delays.
 
 **The product around it.** Multi-tenant Postgres with row-level security, Stripe billing
 with idempotent webhooks, metered usage with spend ceilings that actually refuse, auth,
@@ -50,12 +54,12 @@ ceilings.
 
 | Project | What it does | Stack |
 |---|---|---|
-| [**Clínica Aurora · Demo agent that writes to a schedule**](https://aurora.pgdev.com.br) | Demo with a fictional clinic, open, no signup: you talk, and the row changes in the clinic system live. Five business rules are decided by a deterministic engine instead of the model, every decision is logged with the rule code that produced it, and a button takes the clinic system down to prove the agent escalates rather than inventing a confirmation. | FastAPI, Claude Sonnet 5, deterministic policy engine, server-sent events |
+| [**Clínica Aurora · Demo agent that writes to a schedule**](https://aurora.pgdev.com.br) ([code](https://github.com/DevPedroGomes/clinica-aurora)) | Demo with a fictional clinic, open, no signup: you talk, and the row changes in the clinic system live. Five business rules are decided by a deterministic engine instead of the model, every decision is logged with the rule code that produced it, and a button takes the clinic system down to prove the agent escalates rather than inventing a confirmation. | FastAPI, Claude Sonnet 5, deterministic policy engine, server-sent events |
 | [**Clínica Aurora MCP server**](https://portfolio.pgdev.com.br/en/projects/aurora-mcp) | The same fictional clinic schedule, published as an MCP server where every write takes two calls: the first returns a proposal and a confirmation token, the second commits it. A write the policy refuses comes back with the rule code, and two tools return the rules and the session's decision log. | MCP (streamable HTTP), FastAPI, Python 3.12 |
-| [**Sofia · Gomio Voz demo receptionist**](https://voz.gomio.com.br/en) | Answers callers, takes their name, phone and reason, and refuses what the business does not do. Next to the conversation, each decision shows the written rule behind it. Talk to her through your microphone, or replay ready-made cases without one. 751 tests, and 9 scripted conversations in each language must pass before every release. | LiveKit Agents, Gemini 3.1 Flash Lite, Cartesia Sonic 3.5, Next.js |
+| [**Gom · Gomio's voice agent**](https://voz.gomio.com.br/en) | Answers callers, takes their name, phone and reason, and refuses what the business does not do. Next to the conversation, each decision shows the written rule behind it. Talk to her through your microphone, or replay ready-made cases without one. 751 tests, and 9 scripted conversations in each language must pass before every release. | LiveKit Agents, Gemini 3.1 Flash Lite, Cartesia Sonic 3.5, Next.js |
 | [**Chancela · Does the AI recommend this business?**](https://chancela.gomio.com.br/en) | Ask an AI "best dentist in Salvador" and a real business either shows up or it does not. Measures which, question by question and live in front of you, and reports only what came back. Detection is exact matching, never fuzzy: a false positive would cost the audit the one thing it sells, which is being checkable. | FastAPI, PostgreSQL queue, OpenRouter (GPT, Gemini), Next.js |
 | [**Gomio operation demos · Real estate, accounting, law firm**](https://portfolio.pgdev.com.br/en/projects/gomio-operation-demos) | A real estate agency you operate from both sides: write as a tenant, then approve the reply in the owner's panel. The same engine runs an accounting firm and a law firm. Code answers the facts and the model only drafts text a person approves. Each visitor gets an isolated copy, and every demo passed a 60-message evaluation with the real model before release. 572 tests. In Portuguese, built for Brazilian businesses. | FastAPI, SQLite, Claude Haiku 4.5, Claude Sonnet 5.5, Playwright |
-| [**BrainHub · Multimodal RAG**](https://group-documents.pgdev.com.br) | Team Q&A over PDFs, images, audio, video and crawled URLs with cited sources. SSRF-defended URL ingest, tenant-filtered retrieval. | FastAPI, pgvector, Voyage AI, Cohere Rerank, Gemini, Claude |
+| [**BrainHub · Multimodal RAG**](https://group-documents.pgdev.com.br) ([code](https://github.com/DevPedroGomes/brainhub-rag)) | Team Q&A over PDFs, images, audio, video and crawled URLs with cited sources. SSRF-defended URL ingest, tenant-filtered retrieval. | FastAPI, pgvector, Voyage AI, Cohere Rerank, Gemini, Claude |
 | [**AI Web Scraping Agent**](https://scraper.pgdev.com.br) | A URL plus a sentence becomes validated JSON. Multi-layer SSRF and DNS-rebinding defense, prompt-injection isolation, bring-your-own-key across 6 providers, per-key cache scoping. | FastAPI, Next.js, Playwright, SQLite |
 
 Also shipped: [agent-ops](https://github.com/DevPedroGomes/agent-ops), a Python library extracted from a
@@ -81,8 +85,11 @@ sessions reached the requested destination.
 
 ### Gomio
 
-The software house side. Three services and two products:
+The software house side. A package for accounting firms, three services and one product:
 
+- **Package for accounting firms.** The system chases clients' documents over the firm's
+  WhatsApp, and the accountant approves each message before it goes out. Starts with a
+  30-day pilot.
 - **Operações Gomio.** A whole operation run with AI and integrations, with exceptions
   handled explicitly: what the rules allow runs, the rest goes to a person for approval.
   Starts with a five-day Diagnóstico.
@@ -91,8 +98,8 @@ The software house side. Three services and two products:
 - **Sistemas sob Medida.** Selected custom projects. Starts with a Discovery.
 - **Chancela.** Measures whether AI answers mention a business, shows the sources the AI
   used, and turns that into actions. [chancela.gomio.com.br](https://chancela.gomio.com.br)
-- **Gomio Voz.** Auditable voice agents: every decision comes from a business rule, is
-  logged and is tested before going live. Talk to Sofia at [voz.gomio.com.br](https://voz.gomio.com.br).
+
+Talk to Gom, Gomio's voice agent, at [voz.gomio.com.br](https://voz.gomio.com.br).
 
 Scope and pricing at [gomio.com.br](https://gomio.com.br).
 
